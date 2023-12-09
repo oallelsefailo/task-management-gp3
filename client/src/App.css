@@ -1,3 +1,45 @@
+:root {
+  --primary-background-color: #242629;
+  --text-color: #868d96;
+  --active-text-color: #5270b1;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  align-items: center;
+  background-color: var(--primary-background-color);
+  color: var(--text-color);
+}
+
+.app-container {
+  display: flex;
+}
+
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  border: 1px solid #ddd; 
+  border-radius: 8px; 
+}
+
+button {
+  color: var(--text-color);
+}
+
+button:hover {
+  color: var(--active-text-color)
+}
+
+.active-link {
+  color: #5270b1;
+  font-weight: bold;
+}
+
 .App {
   text-align: center;
 }
