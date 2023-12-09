@@ -1,0 +1,30 @@
+.container {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: calc(100vw - 120px);
+  box-sizing: border-box;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.title h2 {
+  margin: 0;
+}
+
+.buttons button {
+  margin-left: 10px;
+  background-color: #373a3d;
+  font-weight: bold; 
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+}
