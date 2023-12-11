@@ -7,36 +7,36 @@ import axios from "axios";
 import "./container.css";
 
 function Container() {
-  const [collections, setCollections] = useState([]);
+  const [task, settask] = useState([]);
 
   useEffect(() => {
-    const fetchCollections = async () => {
+    const fetchtask = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/api/collections"
+          "http://localhost:5000/api/task"
         );
         if (response.status === 200) {
-          const collectionsWithPlaceholders = response.data.map(
-            (collection) => {
-              if (!collection.photo) {
+          const taskWithPlaceholders = response.data.map(
+            (task) => {
+              if (!task.photo) {
                 return {
-                  ...collection,
+                  ...task,
                   photo: "https://placekitten.com/200/200",
                 };
               }
-              return collection;
+              return task;
             }
           );
-          setCollections(collectionsWithPlaceholders);
+          settask(taskWithPlaceholders);
         } else {
-          console.error("Failed to fetch collections");
+          console.error("Failed to fetch task");
         }
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchCollections();
+    fetchtask();
   }, []);
 
   return (
@@ -56,13 +56,13 @@ function Container() {
           </button>
         </div>
       </div>
-      <div className="collections">
-        <h3>Collections:</h3>
+      <div className="task">
+        <h3>task:</h3>
         <ul>
-          {collections.map((collection) => (
-            <li key={collection._id}>
-              <img src={collection.photo} alt={`${collection.name}`} />
-              <p>{collection.name}</p>
+          {task.map((task) => (
+            <li key={task._id}>
+              <img src={task.photo} alt={`${task.name}`} />
+              <p>{task.name}</p>
             </li>
           ))}
         </ul>
