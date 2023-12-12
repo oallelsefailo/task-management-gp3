@@ -10,7 +10,7 @@ function Navigation() {
       <nav className="firstNav">
         <ul>
           <li>
-            <NavLink to="/" activeClassName="active-link">
+            <NavLink to="/task" activeClassName="active-link">
               <FontAwesomeIcon icon={faChalkboard} /> &nbsp; Boards
             </NavLink>
           </li>

@@ -38,9 +38,11 @@ function Container() {
       <div className="title">
         <h2>Evil Plans Projects</h2>
         <div className="buttons">
+          <Link to="/task">
           <button>
             <FontAwesomeIcon icon={faFlipboard} /> &nbsp; Boards
           </button>
+          </Link>
           <button>
             <FontAwesomeIcon icon={faBinoculars} />
             &nbsp; Views
