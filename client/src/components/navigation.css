@@ -50,7 +50,7 @@ nav ul li {
   color: #5270b1;
 }
 
-/* dropdown */
+/* Dropdown */
 
 .nav-dropdown {
   position: relative;
@@ -70,7 +70,8 @@ nav ul li {
   flex-direction: column;
 }
 
-/* dropdown style */
+/* Dropdown Style */
+
 .nav-dropdown ul li {
   margin: 0;
   padding: 10px;
@@ -78,4 +79,12 @@ nav ul li {
 
 .nav-dropdown ul li a {
   color: #5270b1;
+}
+
+/* Media Query */
+
+@media screen and (max-width: 768px) {
+  header {
+    display: none; 
+  }
 }
