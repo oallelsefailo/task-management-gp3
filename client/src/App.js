@@ -7,16 +7,14 @@ import Submitter from "./components/Submit";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3000);
   }, []);
 
   const handleLogin = () => {
