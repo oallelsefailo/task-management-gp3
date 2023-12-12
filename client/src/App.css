@@ -79,3 +79,16 @@ button:hover {
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  display: flex;
+  text-align: center;
+  margin-left: 95vh;
+}
+
+.pacManLoader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
