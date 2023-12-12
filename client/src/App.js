@@ -4,7 +4,9 @@ import Navigation from "./components/Navigation";
 import Container from "./components/Container";
 // import LoginPage from "./components/LoginPage";
 import Submitter from "./components/Submit";
+import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 import PacmanLoader from "react-spinners/PacmanLoader";
 
 function App() {
@@ -27,11 +29,33 @@ function App() {
       {loading ? (
         <PacmanLoader
           color={"#36D7B7"}
+        <PacmanLoader
+          color={"#36D7B7"}
           loading={loading}
           size={30}
           className="pacManLoader"
         />
       ) : (
+        <>
+          <Router>
+            <div className="app-container">
+              {isLoggedIn && <Navigation />}
+              <Routes>
+                <Route
+                  path="/task"
+                  element={
+                    isLoggedIn ? (
+                      <Container />
+                    ) : (
+                      <LoginPage onLogin={handleLogin} />
+                    )
+                  }
+                />
+                <Route path="/task/submit" element={<Submitter />} />
+                <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
+              </Routes>
+            </div>
+          </Router>
         <Router>
           <div className="app-container">
             {isLoggedIn && <Navigation />}
