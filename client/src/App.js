@@ -25,6 +25,7 @@ function App() {
   return (
     <>
       {loading ? (
+      
         <PacmanLoader 
           color={"#36D7B7"}  
           loading={loading}
