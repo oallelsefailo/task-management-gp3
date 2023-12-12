@@ -24,7 +24,7 @@ router.post("/", async (req, res) => {
 // GET task
 router.get("/", async (req, res) => {
   try {
-    const tasks = await schemas.Task.find();
+    const task = await schemas.Task.find();
     res.status(200).json(task);
   } catch (error) {
     console.error(error);

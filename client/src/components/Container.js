@@ -4,31 +4,24 @@ import { faBinoculars } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import "./container.css";
 
 function Container() {
-  const [task, settask] = useState([]);
+  const [task, setTasks] = useState([]);
 
   useEffect(() => {
-    const fetchtask = async () => {
+    const fetchTask = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/task"
-        );
-        if (response.status === 200) {
-          const taskWithPlaceholders = response.data.map(
-            (task) => {
-              if (!task.photo) {
-                return {
-                  ...task,
-                  photo: "https://placekitten.com/200/200",
-                };
-              }
-              return task;
+        const response = await fetch("http://localhost:5000/submit_task");
+        if (response.ok) {
+          const data = await response.json();
+          const taskWithPlaceholders = data.map((task) => {
+            if (!task.photo) {
+              return { ...task, photo: "https://placekitten.com/200/200" };
             }
-          );
-          settask(taskWithPlaceholders);
+            return task;
+          });
+          setTasks(taskWithPlaceholders);
         } else {
           console.error("Failed to fetch task");
         }
@@ -37,7 +30,7 @@ function Container() {
       }
     };
 
-    fetchtask();
+    fetchTask();
   }, []);
 
   return (
