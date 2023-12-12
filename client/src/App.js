@@ -7,6 +7,7 @@ import Submitter from "./components/Submit";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 function App() {
   const [loading, setLoading] = useState(false);
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -38,16 +39,7 @@ function App() {
               <Navigation />
               {/* {isLoggedIn && <Navigation />} */}
               <Routes>
-                {/* <Route
-                  path="/task"
-                  element={
-                    isLoggedIn ? (
-                      <Container />
-                    ) : (
-                      <LoginPage onLogin={handleLogin} />
-                    )
-                  }
-                /> */}
+                {/* <Route path="/task" element={isLoggedIn ? (<Container />) : (<LoginPage onLogin={handleLogin} />)} /> */}
                 <Route path="/task" element={<Container />} />
                 <Route path="/task/submit" element={<Submitter />} />
                 {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
