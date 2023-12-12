@@ -36,12 +36,12 @@ function Container() {
   return (
     <div className="container">
       <div className="title">
-        <h2>Evil Plans Projects</h2>
+        <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
         <div className="buttons">
           <Link to="/task">
-          <button>
-            <FontAwesomeIcon icon={faFlipboard} /> &nbsp; Boards
-          </button>
+            <button>
+              <FontAwesomeIcon icon={faFlipboard} /> &nbsp; Boards
+            </button>
           </Link>
           <button>
             <FontAwesomeIcon icon={faBinoculars} />
@@ -53,7 +53,7 @@ function Container() {
         </div>
       </div>
       <div className="task">
-        <h3>task:</h3>
+        <h3>Task:</h3>
         <ul>
           {task.map((task) => (
             <li key={task._id}>
@@ -64,7 +64,7 @@ function Container() {
         </ul>
       </div>
       <Link to="/task/submit">
-        <button className="">Add Task</button>
+        <button className="addTask">Add Task</button>
       </Link>
     </div>
   );
