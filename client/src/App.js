@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Container from "./components/Container";
-import Submit from "./components/Submit";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Submitter from "./components/Submit";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -16,21 +15,16 @@ function App() {
   return (
     <Router>
       <div className="app-container">
-        <Navigation />
+        {isLoggedIn && <Navigation />}
         <Routes>
           <Route
             path="/task"
             element={
-             <Container />
+              isLoggedIn ? <Container /> : <LoginPage onLogin={handleLogin} />
             }
           />
-          <Route
-            path="/task/submit"
-            element={
-             <Submitter />
-            }
-          />
-          {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
+          <Route path="/task/submit" element={<Submitter />} />
+          <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
         </Routes>
       </div>
     </Router>
