@@ -3,6 +3,7 @@ import { faFlipboard } from "@fortawesome/free-brands-svg-icons";
 import { faBinoculars } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import "./container.css";
 
@@ -67,6 +68,9 @@ function Container() {
           ))}
         </ul>
       </div>
+      <Link to="/task/submit">
+        <button className="">Add Task</button>
+      </Link>
     </div>
   );
 }

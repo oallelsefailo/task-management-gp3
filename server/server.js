@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const router = require("./routes/submit_task");
 
 const app = express();
 
@@ -17,6 +18,8 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
+app.use("/submit_task", router);
 
 const dbOptions = { useNewUrlParser: true, useUnifiedTopology: true };
 mongoose.connect(process.env.MONGO_URI, dbOptions)
