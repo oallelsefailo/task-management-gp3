@@ -3,40 +3,34 @@ import { faFlipboard } from "@fortawesome/free-brands-svg-icons";
 import { faBinoculars } from "@fortawesome/free-solid-svg-icons";
 import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import "./container.css";
 
 function Container() {
-  const [collections, setCollections] = useState([]);
+  const [task, setTasks] = useState([]);
 
   useEffect(() => {
-    const fetchCollections = async () => {
+    const fetchTask = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:5000/api/collections"
-        );
-        if (response.status === 200) {
-          const collectionsWithPlaceholders = response.data.map(
-            (collection) => {
-              if (!collection.photo) {
-                return {
-                  ...collection,
-                  photo: "https://placekitten.com/200/200",
-                };
-              }
-              return collection;
+        const response = await fetch("http://localhost:5000/submit_task");
+        if (response.ok) {
+          const data = await response.json();
+          const taskWithPlaceholders = data.map((task) => {
+            if (!task.photo) {
+              return { ...task, photo: "https://placekitten.com/200/200" };
             }
-          );
-          setCollections(collectionsWithPlaceholders);
+            return task;
+          });
+          setTasks(taskWithPlaceholders);
         } else {
-          console.error("Failed to fetch collections");
+          console.error("Failed to fetch task");
         }
       } catch (error) {
         console.error(error);
       }
     };
 
-    fetchCollections();
+    fetchTask();
   }, []);
 
   return (
@@ -44,9 +38,11 @@ function Container() {
       <div className="title">
         <h2>Evil Plans Projects</h2>
         <div className="buttons">
+          <Link to="/task">
           <button>
             <FontAwesomeIcon icon={faFlipboard} /> &nbsp; Boards
           </button>
+          </Link>
           <button>
             <FontAwesomeIcon icon={faBinoculars} />
             &nbsp; Views
@@ -56,17 +52,20 @@ function Container() {
           </button>
         </div>
       </div>
-      <div className="collections">
-        <h3>Collections:</h3>
+      <div className="task">
+        <h3>task:</h3>
         <ul>
-          {collections.map((collection) => (
-            <li key={collection._id}>
-              <img src={collection.photo} alt={`${collection.name}`} />
-              <p>{collection.name}</p>
+          {task.map((task) => (
+            <li key={task._id}>
+              <img src={task.photo} alt={`${task.name}`} />
+              <p>{task.name}</p>
             </li>
           ))}
         </ul>
       </div>
+      <Link to="/task/submit">
+        <button className="">Add Task</button>
+      </Link>
     </div>
   );
 }
