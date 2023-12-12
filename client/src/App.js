@@ -36,11 +36,19 @@ function App() {
           <Router>
             <div className="app-container">
               <Navigation />
+              {/* {isLoggedIn && <Navigation />} */}
               <Routes>
-                <Route
+                {/* <Route
                   path="/task"
-                  element={<Container />}
-                />
+                  element={
+                    isLoggedIn ? (
+                      <Container />
+                    ) : (
+                      <LoginPage onLogin={handleLogin} />
+                    )
+                  }
+                /> */}
+                <Route path="/task" element={<Container />} />
                 <Route path="/task/submit" element={<Submitter />} />
                 {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
               </Routes>
