@@ -1,22 +1,47 @@
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChalkboard, faTable } from "@fortawesome/free-solid-svg-icons";
-import React from "react";
-import { NavLink } from "react-router-dom";
 import "./navigation.css";
 
 function Navigation() {
+  const [activeLinkId, setActiveLinkId] = useState(null);
+
+  const handleLiClick = (id) => {
+    setActiveLinkId(id);
+  };
+
+  const getLiStyle = (id) => ({
+    backgroundColor: activeLinkId === id ? "#4B0082" : "transparent",
+  });
+
+  const getLinkStyle = (id) => ({
+    padding: "10px", 
+    color: "#a9b4c1",
+  });
+
+
   return (
     <header>
       <nav className="firstNav">
         <ul>
-          <li>
-            <NavLink to="/" activeClassName="active-link">
+          <li style={getLiStyle(1)}>
+            <NavLink
+              to="/task"
+              style={getLinkStyle(1)}
+              onClick={() => handleLiClick(1)}
+            >
               <FontAwesomeIcon icon={faChalkboard} /> &nbsp; Boards
             </NavLink>
           </li>
-          <li>
-              <FontAwesomeIcon icon={faTable} /> &nbsp;
-              Collections
+          <li style={getLiStyle(2)}>
+            <NavLink
+              to="/collections"
+              style={getLinkStyle(2)}
+              onClick={() => handleLiClick(2)}
+            >
+              <FontAwesomeIcon icon={faTable} /> &nbsp; Collections
+            </NavLink>
           </li>
         </ul>
       </nav>
