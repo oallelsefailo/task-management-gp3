@@ -5,10 +5,11 @@ import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./container.css";
+import Modal from "./Modal";
 
 function Container() {
   const [task, setTasks] = useState([]);
-
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -66,6 +67,10 @@ function Container() {
       <Link to="/task/submit">
         <button className="addTask">Add Task</button>
       </Link>
+      <div>
+      <button onClick={() => setOpenModal(true)}>Modal</button>
+      <Modal open={openModal} onClose={()=> setOpenModal(false)} />
+      </div>
     </div>
   );
 }
