@@ -1,0 +1,29 @@
+.logInPage {
+    text-align: center;     
+    position: absolute;        
+    width: 100%;
+}
+
+.labelInput {
+    font-size:x-large;
+
+}
+
+.inputbar {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: medium;
+}
+
+.loginButton {
+    font-size: medium;
+    margin-top: 10px;
+    color: black;
+    background-color: #5270b1;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.rightsidetext {
+    font-size: medium;
+}
