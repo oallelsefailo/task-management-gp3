@@ -43,6 +43,7 @@ function App() {
                 <Route path="/task" element={<Container />} />
                 <Route path="/task/submit" element={<Submitter />} />
                 <Route path="/" element={<SignupLogIn/>} />
+                <Route path="/login" element={<LoginPage onLogin={handleLogin} />} /> 
                 {/*<Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
               </Routes>
 

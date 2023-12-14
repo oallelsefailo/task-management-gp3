@@ -7,13 +7,16 @@ export default function SignupLogin () {
         <>
         <div className= "logInPage">
                 <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
-                <h1>Welcome to EvilMonday, where you plot your takeover.</h1>
-                <div>
+                <div className="h1quote"> 
+                    <h1>Welcome to EvilMonday, where you plot your takeover.</h1>
+                    </div>
+                <div class= "loginSignupButton">
                     <a href='/task'/>
-                        <button>Sign up</button> 
+                        <button className="buttonlog">Sign up</button> 
                 </div>
-                <div>
-                    <button>Log In</button>
+                <h2 className="loginSignupButton">OR</h2>
+                <div class= "loginSignupButton">
+                    <button className="buttonlog" onClick={() => navigate('/login')}>Log In</button>
                 </div>
         </div>
         </>

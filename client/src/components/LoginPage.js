@@ -22,7 +22,10 @@ export default function LoginPage () {
             <div>
                 <a href='/task'/>
                 <button className='loginButton' onClick={() => navigate('/task')}>
-                    Enter the Evil Lair</button></div>
+                    Enter the Evil Lair</button>
+                <a href='/'/>
+                <button className='loginButton' onClick={() => navigate('/')}>Return to log in</button>
+                    </div>
         </div>  
     </>
  );

@@ -6,4 +6,21 @@ img {
 .logInPage h1 {
     font-size: xx-large;
     align-items: center;
+    text-align: center;
+    display: flex;
+    margin: 0 500px 10px;
+    margin-top: 20px;
+}
+
+.loginSignupButton {
+    display: inline-block;
+    padding: 6px 12px;
+}
+
+.buttonlog {
+    font-size: x-large;
+    background-color: #357ebd;
+    border-color: #357ebd;
+    padding: 5px;
+    border-radius: 10px;
 }
