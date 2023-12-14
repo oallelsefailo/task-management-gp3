@@ -6,6 +6,7 @@
 
 .labelInput {
     font-size:x-large;
+    font-weight:bolder;
 
 }
 
@@ -25,8 +26,10 @@
     background-color: #357ebd;
     border-color: #357ebd;
     border-radius: 10px;
+    font-weight: bold;
 }
 
 .rightsidetext {
     font-size: medium;
+    font-weight: bold;
 }
