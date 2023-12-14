@@ -58,19 +58,16 @@ function Container() {
         <ul>
           {task.map((task) => (
             <li key={task._id}>
-              <img src={task.photo} alt={`${task.name}`} />
-              <p>{task.name}</p>
+              <div className="task-content">
+                <img src={task.photo} alt={`${task.name}`} />
+                <p>{task.name}</p>
+              </div>
             </li>
           ))}
         </ul>
       </div>
-      <Link to="/task/submit">
-        <button className="addTask">Add Task</button>
-      </Link>
-      <div>
-      <button onClick={() => setOpenModal(true)}>Modal</button>
-      <Modal open={openModal} onClose={()=> setOpenModal(false)} />
-      </div>
+      <button className="addTask" onClick={() => setOpenModal(true)}>Create A Task</button>
+      <Modal open={openModal} onClose={() => setOpenModal(false)} />
     </div>
   );
 }
