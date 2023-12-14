@@ -1,13 +1,14 @@
 import "../components/loginpage.css"
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage () {
-
+    const navigate = useNavigate();
     return ( 
         <>
         <div className= "logInPage">
             <form method="" action="">
                 <div className="labelInput">
-                    <label >Villian UserName:</label>
+                    <label >Villain UserName:</label>
                         <input className="inputbar"type= "email" placeholder='enter email'/>
                     <label className="rightsidetext">-don't worry. your evil identity is safe with us.</label>
                 </div>
@@ -15,11 +16,13 @@ export default function LoginPage () {
                 <div className="labelInput">
                     <label>Secret Password:</label>
                         <input className="inputbar" type="password" placeholder="password" />
-                    <label className="rightsidetext">-enter correctly to get into secret lair.</label>
+                    <label className="rightsidetext">-enter correctly to get into lair.</label>
                 </div>
             </form>  
-                <button className='loginButton'>
-                    Enter the Evil Lair</button>
+            <div>
+                <a href='/task'/>
+                <button className='loginButton' onClick={() => navigate('/task')}>
+                    Enter the Evil Lair</button></div>
         </div>  
     </>
  );

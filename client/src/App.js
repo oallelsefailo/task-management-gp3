@@ -22,15 +22,7 @@ function App() {
     setLoggedIn(true);
   };
 
-  return (
-    <Router>
-      <Routes>
-        <Route path="/task" element={isLoggedIn ? (<Container />) 
-                : (<LoginPage onLogin={handleLogin} />)} /> 
-      </Routes>
-    </Router>
-    
-  )
+
 
   return (
     <>
@@ -45,12 +37,11 @@ function App() {
         <>
           <Router>
             <div className="app-container">
-             <Navigation />
-              {/* {isLoggedIn && <Navigation />} */}
+              {isLoggedIn && <Navigation />} 
               <Routes>
                 <Route path="/task" element={<Container />} />
                 <Route path="/task/submit" element={<Submitter />} />
-                {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
+                <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
               </Routes>
 
             </div>
