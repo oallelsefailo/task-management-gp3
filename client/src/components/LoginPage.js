@@ -24,7 +24,7 @@ export default function LoginPage () {
                 <button className='loginButton' onClick={() => navigate('/task')}>
                     Enter the Evil Lair</button>
                 <a href='/'/>
-                <button className='loginButton' onClick={() => navigate('/')}>Return to log in</button>
+                <button className='loginButton' onClick={() => navigate('/')}>Return to sign up </button>
                     </div>
         </div>  
     </>

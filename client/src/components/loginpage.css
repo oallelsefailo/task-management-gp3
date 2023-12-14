@@ -18,12 +18,13 @@
 .loginButton {
     font-size: medium;
     margin-top: 10px;
-    color: black;
-    background-color: #5270b1;
-    padding: 5px;
-    border-radius: 10px;
+    color: white;
     padding: 6px 12px;
     margin: 10px;
+    width: 10%;
+    background-color: #357ebd;
+    border-color: #357ebd;
+    border-radius: 10px;
 }
 
 .rightsidetext {
