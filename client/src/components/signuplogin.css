@@ -1,0 +1,9 @@
+img {
+    max-width: 100%; /* Set the maximum width */
+    height: 100px; /* Maintain aspect ratio */
+  }
+  
+.logInPage h1 {
+    font-size: xx-large;
+    align-items: center;
+}
