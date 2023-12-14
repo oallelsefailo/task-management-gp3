@@ -57,8 +57,10 @@ function Container() {
         <ul>
           {task.map((task) => (
             <li key={task._id}>
-              <img src={task.photo} alt={`${task.name}`} />
-              <p>{task.name}</p>
+              <div className="task-content">
+                <img src={task.photo} alt={`${task.name}`} />
+                <p>{task.name}</p>
+              </div>
             </li>
           ))}
         </ul>

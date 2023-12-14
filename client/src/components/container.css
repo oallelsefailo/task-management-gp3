@@ -1,9 +1,11 @@
 .container {
-  flex-grow: 1;
+  flex-shrink: 0;
+  flex-basis: auto;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;
-  width: calc(100vw - 120px);
+  width: calc(100vw - 170px);
+  min-height: 200px;
   box-sizing: border-box;
 }
 
@@ -42,7 +44,6 @@
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  display: block;
 }
 
 a {
@@ -51,6 +52,61 @@ a {
 
 .addTask:hover {
   background-color: #394046; 
+}
+
+/* Task Board */
+
+.task {
+  display: flex;
+  flex-wrap: wrap; 
+  gap: 20px; 
+  justify-content: flex-start;
+  align-items: stretch; 
+}
+
+.task li {
+  width: calc(20% - 20px);
+  display: block; 
+  margin-bottom: 20px; 
+}
+
+.task-content {
+  position: relative;
+  display: flex; 
+  align-items: center;
+  width: 100%;
+  justify-content: start;
+}
+
+.task ul {
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.task img {
+  width: 100%; 
+  height: 180px;
+  object-fit: cover;
+  margin-right: 0; 
+}
+
+.task p {
+  position: absolute; 
+  top: 80%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  color: white; 
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 5px; 
+  width: calc(100% - 10px); 
+  text-align: center; 
+  white-space: normal; 
+  overflow: hidden; 
 }
 
 /* Media Query */
@@ -80,5 +136,30 @@ a {
     margin-right: 0; 
     margin-bottom: 5px;
     padding: 5px;
+  }
+
+  .task li {
+    max-width: 100%; 
+  }
+
+  .task img {
+    width: 100%;
+    min-height: 150px;
+    max-height: 300px;
+  }
+
+  .task p {
+    font-size: 12px;
+    padding: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 595px) {
+  .task li {
+    flex-basis: calc(50% - 10px); 
+    max-width: calc(50% - 10px); 
   }
 }
