@@ -1,7 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Submitter() {
+  const navigate = useNavigate();
   const [photo, setPhoto] = useState("");
   const [name, setName] = useState("");
   const handleSubmit = async (e) => {
@@ -23,6 +25,7 @@ function Submitter() {
         console.log("Task Posted Successfully");
         setPhoto("");
         setName("");
+        navigate('/task');
       } else {
         console.error("Failed to post task");
       }
@@ -31,10 +34,10 @@ function Submitter() {
     }
   }
 
-return (
+  return (
     <div className="submit-container">
       <h1>Submit Task</h1>
-      <form method="POST" action="/rides">
+      <form method="POST" action="/task">
         <div className="label-input-group">
           <label>Photos: </label>
           <input

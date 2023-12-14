@@ -8,14 +8,13 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [isLoggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     setTimeout(() => {
       setLoading(false);
-    }, 5000);
+    }, 3000);
   }, []);
 
   const handleLogin = () => {
@@ -32,23 +31,20 @@ function App() {
           className="pacManLoader"
         />
       ) : (
-        <Router>
-          <div className="app-container">
-            {isLoggedIn && <Navigation />}
-            <Routes>
-              {/* 
-                <Route
-                  path="/collections"
-                  element={
-                    isLoggedIn ? <Container /> : <LoginPage onLogin={handleLogin} />
-                  }
-                />
-                <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
-              */}
-            </Routes>
-          </div>
-          <h1>EvilMonday</h1>
-        </Router>
+        <>
+          <Router>
+            <div className="app-container">
+              <Navigation />
+              {/* {isLoggedIn && <Navigation />} */}
+              <Routes>
+                {/* <Route path="/task" element={isLoggedIn ? (<Container />) : (<LoginPage onLogin={handleLogin} />)} /> */}
+                <Route path="/task" element={<Container />} />
+                <Route path="/task/submit" element={<Submitter />} />
+                {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
+              </Routes>
+            </div>
+          </Router>
+        </>
       )}
     </>
   );
