@@ -58,10 +58,12 @@ function Container() {
         <ul>
           {task.map((task) => (
             <li key={task._id}>
+              <Link to={`/task/${task._id}`} className="navLink">
               <div className="task-content">
                 <img src={task.photo} alt={`${task.name}`} />
                 <p>{task.name}</p>
               </div>
+              </Link>
             </li>
           ))}
         </ul>
