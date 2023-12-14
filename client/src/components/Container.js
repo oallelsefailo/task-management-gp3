@@ -37,7 +37,7 @@ function Container() {
   return (
     <div className="container">
       <div className="title">
-        <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
+        <img src="/assets/images/icons/e-m.png" alt="Evil Monday Logo" />
         <div className="buttons">
           <Link to="/task">
             <button>
