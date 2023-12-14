@@ -37,7 +37,7 @@ function Container() {
   return (
     <div className="container">
       <div className="title">
-        <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
+        <img src="/assets/images/icons/e-m.png" alt="Evil Monday Logo" />
         <div className="buttons">
           <Link to="/task">
             <button>
@@ -58,10 +58,12 @@ function Container() {
         <ul>
           {task.map((task) => (
             <li key={task._id}>
+              <Link to={`/task/${task._id}`} className="navLink">
               <div className="task-content">
                 <img src={task.photo} alt={`${task.name}`} />
                 <p>{task.name}</p>
               </div>
+              </Link>
             </li>
           ))}
         </ul>
