@@ -6,17 +6,18 @@ export default function LoginPage () {
     return ( 
         <>
         <div className= "logInPage">
+        <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
             <form method="" action="">
                 <div className="labelInput">
                     <label >Villain UserName:</label>
                         <input className="inputbar"type= "email" placeholder='enter email'/>
-                    <label className="rightsidetext">-don't worry. your evil identity is safe with us.</label>
+
                 </div>
                 <br />
                 <div className="labelInput">
                     <label>Secret Password:</label>
                         <input className="inputbar" type="password" placeholder="password" />
-                    <label className="rightsidetext">-enter correctly to get into lair.</label>
+                    <label className="rightsidetext">(enter correctly to get into lair)</label>
                 </div>
             </form>  
             <div>

@@ -11,8 +11,8 @@ export default function SignupLogin () {
                     <h1>Welcome to EvilMonday, where you plot your takeover.</h1>
                     </div>
                 <div class= "loginSignupButton">
-                    <a href='/task'/>
-                        <button className="buttonlog">Sign up</button> 
+                    <a href='/signup'/>
+                        <button className="buttonlog" onClick={() => navigate('/signup')}>Sign up</button> 
                 </div>
                 <h2 className="loginSignupButton">OR</h2>
                 <div class= "loginSignupButton">

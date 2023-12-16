@@ -8,6 +8,7 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
 import SignupLogIn from "./components/SignupLogin";
+import SignupPage from "./components/SignupPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -44,6 +45,7 @@ function App() {
                 <Route path="/task/submit" element={<Submitter />} />
                 <Route path="/" element={<SignupLogIn/>} />
                 <Route path="/login" element={<LoginPage onLogin={handleLogin} />} /> 
+                <Route path="/signup" element={<SignupPage/>} />
                 {/*<Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
               </Routes>
 
