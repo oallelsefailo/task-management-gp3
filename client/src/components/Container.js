@@ -5,11 +5,10 @@ import { faPerson } from "@fortawesome/free-solid-svg-icons";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./container.css";
-import Modal from "./Modal";
 
 function Container() {
   const [task, setTasks] = useState([]);
-  const [openModal, setOpenModal] = useState(false);
+
   useEffect(() => {
     const fetchTask = async () => {
       try {
@@ -37,7 +36,7 @@ function Container() {
   return (
     <div className="container">
       <div className="title">
-        <img src="/assets/images/icons/e-m.png" alt="Evil Monday Logo" />
+        <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
         <div className="buttons">
           <Link to="/task">
             <button>
@@ -58,18 +57,15 @@ function Container() {
         <ul>
           {task.map((task) => (
             <li key={task._id}>
-              <Link to={`/task/${task._id}`} className="navLink">
-              <div className="task-content">
-                <img src={task.photo} alt={`${task.name}`} />
-                <p>{task.name}</p>
-              </div>
-              </Link>
+              <img src={task.photo} alt={`${task.name}`} />
+              <p>{task.name}</p>
             </li>
           ))}
         </ul>
       </div>
-      <button className="addTask" onClick={() => setOpenModal(true)}>Create A Task</button>
-      <Modal open={openModal} onClose={() => setOpenModal(false)} />
+      <Link to="/task/submit">
+        <button className="addTask">Add Task</button>
+      </Link>
     </div>
   );
 }
