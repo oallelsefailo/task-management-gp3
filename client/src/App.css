@@ -16,8 +16,16 @@ body {
 
 .app-container {
   display: flex;
-  flex-direction: row;
-  align-items: center;
+}
+
+.content-container {
+  flex-grow: 1;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
 }
 
 button {
@@ -73,6 +81,7 @@ button:hover {
 }
 
 h1 {
+  display: flex;
   text-align: center;
   margin-left: 95vh;
 }

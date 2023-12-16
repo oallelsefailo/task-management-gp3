@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Container from "./components/Container";
-// import LoginPage from "./components/LoginPage";
+import Submitter from "./components/Submit";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
+import SignupLogIn from "./components/SignupLogin";
+import SignupPage from "./components/SignupPage";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,6 +23,8 @@ function App() {
     setLoggedIn(true);
   };
 
+
+
   return (
     <>
       {loading ? (
@@ -33,14 +38,18 @@ function App() {
         <>
           <Router>
             <div className="app-container">
-              <Navigation />
-              {/* {isLoggedIn && <Navigation />} */}
+              {isLoggedIn && <Navigation />} 
               <Routes>
-                {/* <Route path="/task" element={isLoggedIn ? (<Container />) : (<LoginPage onLogin={handleLogin} />)} /> */}
                 <Route path="/task" element={<Container />} />
-                {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
+                <Route path="/task/submit" element={<Submitter />} />
+                <Route path="/" element={<SignupLogIn/>} />
+                <Route path="/login" element={<LoginPage onLogin={handleLogin} />} /> 
+                <Route path="/signup" element={<SignupPage/>} />
+                {/*<Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
               </Routes>
+
             </div>
+          
           </Router>
         </>
       )}
