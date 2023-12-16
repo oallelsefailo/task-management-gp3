@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Container from "./components/Container";
-// import LoginPage from "./components/LoginPage"; 
 import Submitter from "./components/Submit";
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
