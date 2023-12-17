@@ -20,7 +20,6 @@ function Navigation() {
     color: "#a9b4c1",
   });
 
-
   return (
     <header>
       <nav className="firstNav">

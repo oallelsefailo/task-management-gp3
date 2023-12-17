@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Container from "./components/Container";
-import Submitter from "./components/Submit";
+import Assignment from "./components/AssignmentPage"
 import PacmanLoader from "react-spinners/PacmanLoader";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LoginPage from "./components/LoginPage";
@@ -10,48 +10,42 @@ import SignupLogIn from "./components/SignupLogin";
 import SignupPage from "./components/SignupPage";
 
 function App() {
-  const [loading, setLoading] = useState(true);
   const [isLoggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+  const [showLoader, setShowLoader] = useState(false);
 
   const handleLogin = () => {
     setLoggedIn(true);
+    setShowLoader(true);
+    setTimeout(() => {
+      setShowLoader(false);
+    }, 3000);
   };
-
-
 
   return (
     <>
-      {loading ? (
+      {showLoader ? (
         <PacmanLoader
           color={"#36D7B7"}
-          loading={loading}
+          loading={showLoader}
           size={30}
           className="pacManLoader"
         />
       ) : (
-        <>
-          <Router>
-            <div className="app-container">
-              {isLoggedIn && <Navigation />} 
-              <Routes>
-                <Route path="/task" element={<Container />} />
-                <Route path="/task/submit" element={<Submitter />} />
-                <Route path="/" element={<SignupLogIn/>} />
-                <Route path="/login" element={<LoginPage onLogin={handleLogin} />} /> 
-                <Route path="/signup" element={<SignupPage/>} />
-                {/*<Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
-              </Routes>
-
-            </div>
-          
-          </Router>
-        </>
+        <Router>
+          <div className="app-container">
+            <Navigation />
+            <Routes>
+              <Route path="/task" element={<Container />} />
+              <Route path="/task/:id" element={<Assignment />} />
+              <Route path="/" element={<SignupLogIn />} />
+              <Route
+                path="/login"
+                element={<LoginPage onLogin={handleLogin} />}
+              />
+              <Route path="/signup" element={<SignupPage />} />
+            </Routes>
+          </div>
+        </Router>
       )}
     </>
   );
