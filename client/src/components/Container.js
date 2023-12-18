@@ -49,9 +49,11 @@ function Container() {
             <FontAwesomeIcon icon={faBinoculars} />
             &nbsp; Views
           </button>
-          <button>
-            <FontAwesomeIcon icon={faPerson} /> &nbsp; Members
-          </button>
+          <Link to="/members">
+            <button>
+              <FontAwesomeIcon icon={faPerson} /> &nbsp; Members
+            </button>
+          </Link>
         </div>
       </div>
       <div className="task">
@@ -60,10 +62,10 @@ function Container() {
           {task.map((task) => (
             <li key={task._id}>
               <Link to={`/task/${task._id}`} className="navLink">
-              <div className="task-content">
-                <img src={task.photo} alt={`${task.name}`} />
-                <p>{task.name}</p>
-              </div>
+                <div className="task-content">
+                  <img src={task.photo} alt={`${task.name}`} />
+                  <p>{task.name}</p>
+                </div>
               </Link>
             </li>
           ))}

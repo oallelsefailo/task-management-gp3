@@ -27,7 +27,7 @@ const AssignmentList = (props) => {
       {assignmentArray.map((iterator, index) => {
         const checked = iterator?.checked ? true : false;
 
-        let content = !checked ? (
+        let isChecked = !checked ? (
           <>
             Assignment:&nbsp; 
              <b>{iterator?.assignment}</b>, Assignee: <i>{iterator?.assignee}</i>
@@ -47,7 +47,7 @@ const AssignmentList = (props) => {
               checked={checked}
               onChange={(event) => updateChecked(event, iterator)}
             ></input>
-            {content}
+            {isChecked}
           </div>
         );
       })}

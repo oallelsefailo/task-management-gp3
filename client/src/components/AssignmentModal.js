@@ -71,7 +71,7 @@ function AssignmentModal({ open, onClose, onTaskAdded, id, fetchAssignments }) {
             required
           />
         </div>
-        <input type="submit" value="Submit Query" onClick={handleSubmit} />
+        <input type="submit" value="Submit Query" className="addTask" onClick={handleSubmit} />
       </form>
       </div>
     </div>

@@ -1,0 +1,33 @@
+.members-content {
+  background-color: #1a1a1a; 
+  color: #f8f8f8; 
+  border-radius: 10px;
+  padding: 20px; 
+  margin-top: 20px; 
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); 
+  max-width: 500px; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.member-title {
+  color: #ff6666; 
+  font-style: italic; 
+}
+
+.members-content div {
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #333; 
+  border: 1px solid #666; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); 
+  text-align: center; 
+  font-size: 1.2em; 
+  color: #e0e0e0; 
+}
+
+.members-content div:hover {
+    cursor: pointer;
+    animation: text-color-transition 3s linear infinite;
+}

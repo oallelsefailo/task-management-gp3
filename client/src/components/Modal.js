@@ -73,6 +73,7 @@ function Modal({ open, onClose }) {
           <input
             type="submit"
             value="Submit Query"
+            className="addTask"
             onClick={handleSubmit}
             refresh="true"
           />
