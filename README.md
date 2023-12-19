@@ -2,12 +2,12 @@
 
 ## Overview
 
-This is an evil task manager to help delegate assignments of jobs to bring the world to it's crippling knees!
+This is an evil task manager to help delegate assignments of jobs to bring the world crippling to it's knees! Our Evil clientele will be be able to streamline  
 
 ## Technologies Used
 
 ### Frontend
-- React
+- [![React][React.js]][React-url]
 - HTML/CSS
 - JavaScript
 
