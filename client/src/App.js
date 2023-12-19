@@ -1,67 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Navigation from "./components/Navigation";
 import Container from "./components/Container";
-import Assignment from "./components/AssignmentPage"
+// import LoginPage from "./components/LoginPage";
+// import Submitter from "./components/Submit";
 import PacmanLoader from "react-spinners/PacmanLoader";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
-import SignupLogIn from "./components/SignupLogin";
-import SignupPage from "./components/SignupPage";
-import Members from "./components/Members"
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Error404 from "./components/Error404";
+
 
 function App() {
+  const [loading, setLoading] = useState(true);
   const [isLoggedIn, setLoggedIn] = useState(false);
-  const [showLoader, setShowLoader] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
 
   const handleLogin = () => {
     setLoggedIn(true);
-    setShowLoader(true);
-    setTimeout(() => {
-      setShowLoader(false);
-    }, 3000);
-  };
-
-  const NavigationWrapper = () => {
-    const location = useLocation();
-
-    if (
-      location.pathname === "/" ||
-      location.pathname === "/signup" ||
-      location.pathname === "/login"
-    ) {
-      return null;
-    }
-
-    return <Navigation />;
   };
 
   return (
     <>
-      {showLoader ? (
+      {loading ? (
         <PacmanLoader
           color={"#36D7B7"}
-          loading={showLoader}
+          loading={loading}
           size={30}
           className="pacManLoader"
         />
       ) : (
-        <Router>
-          <div className="app-container">
-            <NavigationWrapper />
-            <Routes>
-              <Route path="/task" element={<Container />} />
-              <Route path="/task/:id" element={<Assignment />} />
-              <Route path="/members" element={<Members />} />
-              <Route path="/" element={<SignupLogIn />} />
-              <Route
-                path="/login"
-                element={<LoginPage onLogin={handleLogin} />}
-              />
-              <Route path="/signup" element={<SignupPage />} />
-            </Routes>
-          </div>
-        </Router>
+        <>
+          <Router>
+            <div className="app-container">
+              <Navigation />
+              {/* {isLoggedIn && <Navigation />} */}
+              <Routes>
+                {/* <Route path="/task" element={isLoggedIn ? (<Container />) : (<LoginPage onLogin={handleLogin} />)} /> */}
+                <Route path="/task" element={<Container />} />
+                {/* <Route path="/task/submit" element={<Submitter />} />}
+                {/* <Route path="/" element={<LoginPage onLogin={handleLogin} />} /> */}
+                <Route path="*" element={<Error404 />} />
+              </Routes>
+            </div>
+          </Router>
+        </>
       )}
     </>
   );
