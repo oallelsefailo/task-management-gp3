@@ -4,8 +4,9 @@ const mongoose = require("mongoose");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const signUpRouter = require("./routes/SignupPage");
 const submitTaskRouter = require("./routes/submit_task");
-const submitAssignmentRouter = require("./routes/submit_assignment")
+const submitAssignmentRouter = require("./routes/submit_assignment");
 const connectDb = require("./config/database");
 connectDb();
 
@@ -24,6 +25,7 @@ app.use(cors(corsOptions));
 
 app.use("/submit_task", submitTaskRouter);
 app.use("/submit_assignment", submitAssignmentRouter);
+app.use("/SignupPage", signUpRouter);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
