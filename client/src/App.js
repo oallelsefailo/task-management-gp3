@@ -43,7 +43,7 @@ function App() {
                 {/* <Route path="/task" element={<Container />} /> */}
                 {/* {/<Route path="/task/submit" element={< Submitter />} />} */}
                 {/* {<Route path="/" element={<LoginPage onLogin={handleLogin} />} />} */}
-                <Route path="/" element={<Error404 />} />
+                <Route path="*" element={<Error404 />} />
               </Routes>
             </div>
           </Router>
