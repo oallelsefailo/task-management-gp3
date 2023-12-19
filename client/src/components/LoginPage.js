@@ -27,7 +27,7 @@ export default function LoginPage({ onLogin }) {
     <>
       <div className="logInPage">
         <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
-        <form method="" action="">
+        <form onSubmit={handleSubmit}>
           <div className="labelInput">
             <label>Villain UserName:</label>
             <input
