@@ -15,13 +15,24 @@ export default function SignupPage() {
 async function handleSubmit(e) {
   e.preventDefault()
 
-  await fetch('http://localhost:5000/SignupPage', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    }, 
-    body: JSON.stringify(user)
-    })
+  try {
+    const response = await fetch('http://localhost:5000/SignupPage', {
+      method: 'POST',
+      headers: {
+        Accept: "application/json",
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
+
+    if (response.ok) {
+      navigate('/welcome');
+    } else {
+      console.error('Signup failed');
+    }
+  } catch (error) {
+    console.error('Error during signup:', error);
+  }
     navigate('/')
 }
 
