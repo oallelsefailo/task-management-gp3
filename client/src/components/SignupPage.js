@@ -39,7 +39,7 @@ async function handleSubmit(e) {
   return (
     <>
       <div className="signupPage">
-        <img src="/assets/images/icons/em-logo.png" alt="Evil Monday Logo" />
+        <img src="/assets/images/icons/em.png" alt="Evil Monday Logo" />
         <h1 className="headerInfo">
           Sign up, and take over the world! ...accordingly.
         </h1>
