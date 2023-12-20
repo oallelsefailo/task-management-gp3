@@ -4,6 +4,10 @@
 
 Taking over the world? Too busy working on the trendy new virus? Take the stress out of planning your evil project. This is an evil task manager that helps delegate assignments to bring the world crippling to it's knees! Our Evil clientele will be able to streamline their plans by creating an account with an email and password, allowing evil users to create tasks on the main board. From there, users can create assignments and assign them to their henchmen. Assignments can checked off once they are completed, creating a board that shows what needs to be done.
 
+## Usage
+
+[Evil Monday](https://evil-task-management-oallelsefailos-projects.vercel.app/)
+
 ## Technologies Used
 
 ### Frontend
