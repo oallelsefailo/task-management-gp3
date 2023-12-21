@@ -29,7 +29,7 @@ export default function LoginPage({ onLogin }) {
         <img src="/assets/images/icons/em.png" alt="Evil Monday Logo" />
         <form onSubmit={handleSubmit}>
           <div className="labelInput">
-            <label>Villain UserName:</label>
+            <label>Villain Email:</label>
             <input
             required
               value={userCredentials.email}
